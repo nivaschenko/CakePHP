@@ -4,21 +4,22 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Category Entity.
+ * Message Entity.
  *
  * @property int $id
- * @property int $parent_id
- * @property \App\Model\Entity\ParentCategory $parent_category
- * @property int $lft
- * @property int $rght
- * @property string $name
- * @property string $description
+ * @property string $title
+ * @property string $message
+ * @property int $user_id
+ * @property \App\Model\Entity\User $user
+ * @property string $lat
+ * @property string $lng
+ * @property string $type
+ * @property string $message_id
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
- * @property \App\Model\Entity\Article[] $articles
- * @property \App\Model\Entity\ChildCategory[] $child_categories
+ * @property \App\Model\Entity\Message[] $messages
  */
-class Category extends Entity
+class Message extends Entity
 {
 
     /**

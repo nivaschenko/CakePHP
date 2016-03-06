@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "98e7759a9c781b8c06f50cfdcf4bcce8",
-    "content-hash": "601fb31c8d0d4504a213a0c837654da4",
+    "hash": "1fed62ac9f1ab87b4fb0a8d3e40d5c34",
+    "content-hash": "653af8a7d6bd238c37904abe170ccb15",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -344,6 +344,153 @@
             "time": "2015-06-10 10:35:13"
         },
         {
+            "name": "elboletaire/less-cake-plugin",
+            "version": "v1.6.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elboletaire/less-cake-plugin.git",
+                "reference": "b8b34874deea5d5ddc77a7f1c91b1a7661132354"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elboletaire/less-cake-plugin/zipball/b8b34874deea5d5ddc77a7f1c91b1a7661132354",
+                "reference": "b8b34874deea5d5ddc77a7f1c91b1a7661132354",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "~3.0",
+                "oyejorge/less.php": "~1.7",
+                "php": ">=5.4.19"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.6",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Less\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Òscar Casajuana",
+                    "email": "elboletaire@underave.net",
+                    "homepage": "http://racotecnic.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Less parser plugin for CakePHP",
+            "keywords": [
+                "cakephp",
+                "css",
+                "less",
+                "parser",
+                "plugin"
+            ],
+            "time": "2015-11-22 00:17:23"
+        },
+        {
+            "name": "elboletaire/twbs-cake-plugin",
+            "version": "v3.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elboletaire/twbs-cake-plugin.git",
+                "reference": "0762cb450d4215fd623fd696d932c9518df5ad9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elboletaire/twbs-cake-plugin/zipball/0762cb450d4215fd623fd696d932c9518df5ad9b",
+                "reference": "0762cb450d4215fd623fd696d932c9518df5ad9b",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "~3.0",
+                "elboletaire/less-cake-plugin": ">=1.6.1",
+                "friendsofcake/bootstrap-ui": "~0.3",
+                "php": ">=5.4.19"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Bootstrap\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Òscar Casajuana",
+                    "email": "elboletaire@underave.net",
+                    "homepage": "http://racotecnic.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Twitter Bootstrap Plugin for CakePHP 3 with bundled less.php and less.js parsers, helpers and bake templates",
+            "keywords": [
+                "bootstrap",
+                "cakephp",
+                "plugin"
+            ],
+            "time": "2015-11-22 00:41:26"
+        },
+        {
+            "name": "friendsofcake/bootstrap-ui",
+            "version": "v0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfCake/bootstrap-ui.git",
+                "reference": "a696d5acaa2f3fc8bc2c8b77ef429791081be926"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfCake/bootstrap-ui/zipball/a696d5acaa2f3fc8bc2c8b77ef429791081be926",
+                "reference": "a696d5acaa2f3fc8bc2c8b77ef429791081be926",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "~3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "BootstrapUI\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jad Bitar",
+                    "homepage": "http://jadb.io",
+                    "role": "Author"
+                },
+                {
+                    "name": "Others",
+                    "homepage": "https://github.com/friendsofcake/bootstrap-ui/graphs/contributors"
+                }
+            ],
+            "description": "Twitter Bootstrap 3 support for CakePHP 3",
+            "homepage": "http://github.com/friendsofcake/bootstrap-ui",
+            "keywords": [
+                "bootstrap",
+                "cakephp",
+                "twitter"
+            ],
+            "time": "2016-02-13 07:09:35"
+        },
+        {
             "name": "mobiledetect/mobiledetectlib",
             "version": "2.8.19",
             "source": {
@@ -396,6 +543,68 @@
                 "php mobile detect"
             ],
             "time": "2015-12-24 16:37:50"
+        },
+        {
+            "name": "oyejorge/less.php",
+            "version": "v1.7.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oyejorge/less.php.git",
+                "reference": "a1e2d3c20794b37ac4d0baeb24613e579584033b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oyejorge/less.php/zipball/a1e2d3c20794b37ac4d0baeb24613e579584033b",
+                "reference": "a1e2d3c20794b37ac4d0baeb24613e579584033b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8.18"
+            },
+            "bin": [
+                "bin/lessc"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Less": "lib/"
+                },
+                "classmap": [
+                    "lessc.inc.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matt Agar",
+                    "homepage": "https://github.com/agar"
+                },
+                {
+                    "name": "Martin Jantošovič",
+                    "homepage": "https://github.com/Mordred"
+                },
+                {
+                    "name": "Josh Schmidt",
+                    "homepage": "https://github.com/oyejorge"
+                }
+            ],
+            "description": "PHP port of the Javascript version of LESS http://lesscss.org",
+            "homepage": "http://lessphp.gpeasy.com",
+            "keywords": [
+                "css",
+                "less",
+                "less.js",
+                "lesscss",
+                "php",
+                "stylesheet"
+            ],
+            "time": "2015-12-30 05:47:36"
         },
         {
             "name": "psr/log",
@@ -765,21 +974,72 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2016-02-23 15:16:06"
+        },
+        {
+            "name": "twbs/bootstrap",
+            "version": "v3.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "81df608a40bf0629a1dc08e584849bb1e43e0b7a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/81df608a40bf0629a1dc08e584849bb1e43e0b7a",
+                "reference": "81df608a40bf0629a1dc08e584849bb1e43e0b7a",
+                "shasum": ""
+            },
+            "replace": {
+                "twitter/bootstrap": "self.version"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                },
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                }
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "http://getbootstrap.com",
+            "keywords": [
+                "JS",
+                "css",
+                "framework",
+                "front-end",
+                "less",
+                "mobile-first",
+                "responsive",
+                "web"
+            ],
+            "time": "2015-11-24 19:37:05"
         }
     ],
     "packages-dev": [
         {
             "name": "cakephp/bake",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/bake.git",
-                "reference": "d60995d4d80498dd3285f076dffd3c9059cda160"
+                "reference": "02a9443b7c3f21a5ba0c0add9049a5e1689da2b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/bake/zipball/d60995d4d80498dd3285f076dffd3c9059cda160",
-                "reference": "d60995d4d80498dd3285f076dffd3c9059cda160",
+                "url": "https://api.github.com/repos/cakephp/bake/zipball/02a9443b7c3f21a5ba0c0add9049a5e1689da2b6",
+                "reference": "02a9443b7c3f21a5ba0c0add9049a5e1689da2b6",
                 "shasum": ""
             },
             "require": {
@@ -812,7 +1072,7 @@
                 "bake",
                 "cakephp"
             ],
-            "time": "2016-02-02 02:35:00"
+            "time": "2016-03-03 09:23:29"
         },
         {
             "name": "cakephp/debug_kit",

@@ -43,6 +43,30 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'email', 'password' => 'password']
+                ]
+            ],
+            'authError' => 'Did you really think you are allowed to see that?',
+            'loginRedirect' => [
+                'controller' => 'Maps',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Maps',
+                'action' => 'index',
+                'home'
+            ],
+            'storage' => 'Session'
+        ]);
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow(['index', 'view', 'display']);
     }
 
     /**
@@ -58,5 +82,38 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+        
+        $menu = ['Home' => ['controller' => 'maps', 'action' => 'index']];
+        
+        if ( true === $this->isAuthorized($this->Auth->user()) ) 
+        {
+            if ( 'admin' == $this->Auth->user('role') ) {
+                $adminMenu = ['Logout' => ['controller' => 'users', 'action' => 'logout'],
+                    'Add User' => ['controller' => 'users', 'action' => 'add'],
+                    'Users' => ['controller' => 'users', 'action' => 'index'],
+                ];
+                $menu = array_merge($menu, $adminMenu);
+            }
+            
+            $userMenu = ['Logout' => ['controller' => 'users', 'action' => 'logout']];
+            $menu = array_merge($menu, $userMenu);
+            
+            
+        } else {
+            $menu['Login'] = ['controller' => 'users', 'action' => 'login'];
+            $menu['Register'] = ['controller' => 'users', 'action' => 'register'];
+        }
+        $this->set('menu', $menu);
+    }
+    
+    public function isAuthorized($user)
+    {
+        // Admin can access every action
+        if (isset($user['role']) && $user['role'] === 'admin') {
+            return true;
+        }
+
+        // Default deny
+        return false;
     }
 }

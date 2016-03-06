@@ -9,7 +9,10 @@
         "cakephp/cakephp": "~3.2",
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/migrations": "~1.0",
-        "cakephp/plugin-installer": "*"
+        "cakephp/plugin-installer": "*",
+        "elboletaire/less-cake-plugin": "^1.6",
+        "twbs/bootstrap": "^3.3",
+        "elboletaire/twbs-cake-plugin": "^3.4"
     },
     "require-dev": {
         "psy/psysh": "@stable",

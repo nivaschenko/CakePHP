@@ -1,20 +1,17 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\Category;
+use App\Model\Entity\User;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Categories Model
+ * Users Model
  *
- * @property \Cake\ORM\Association\BelongsTo $ParentCategories
- * @property \Cake\ORM\Association\HasMany $Articles
- * @property \Cake\ORM\Association\HasMany $ChildCategories
  */
-class CategoriesTable extends Table
+class UsersTable extends Table
 {
 
     /**
@@ -27,24 +24,11 @@ class CategoriesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('categories');
-        $this->displayField('name');
+        $this->table('users');
+        $this->displayField('id');
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
-        $this->addBehavior('Tree');
-
-        $this->belongsTo('ParentCategories', [
-            'className' => 'Categories',
-            'foreignKey' => 'parent_id'
-        ]);
-        $this->hasMany('Articles', [
-            'foreignKey' => 'category_id'
-        ]);
-        $this->hasMany('ChildCategories', [
-            'className' => 'Categories',
-            'foreignKey' => 'parent_id'
-        ]);
     }
 
     /**
@@ -60,22 +44,21 @@ class CategoriesTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->integer('lft')
-//            ->requirePresence('lft', 'create')
-            ->notEmpty('lft');
+            ->requirePresence('username', 'create')
+            ->notEmpty('username');
 
         $validator
-            ->integer('rght')
-//            ->requirePresence('rght', 'create')
-            ->notEmpty('rght');
+            ->email('email')
+            ->requirePresence('email', 'create')
+            ->notEmpty('email');
 
         $validator
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->requirePresence('password', 'create')
+            ->notEmpty('password');
 
         $validator
-            ->requirePresence('description', 'create')
-            ->notEmpty('description');
+            ->requirePresence('role', 'create')
+            ->notEmpty('role');
 
         return $validator;
     }
@@ -89,7 +72,8 @@ class CategoriesTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['parent_id'], 'ParentCategories'));
+        $rules->add($rules->isUnique(['username']));
+        $rules->add($rules->isUnique(['email']));
         return $rules;
     }
 }

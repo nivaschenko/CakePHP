@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class CreateCategories extends AbstractMigration
+class CreateMessages extends AbstractMigration
 {
     /**
      * Change Method.
@@ -12,28 +12,37 @@ class CreateCategories extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('categories');
-        $table->addColumn('parent_id', 'integer', [
+        $table = $this->table('messages');
+        $table->addColumn('title', 'string', [
+            'default' => null,
+            'limit' => 255,
+            'null' => false,
+        ]);
+        $table->addColumn('message', 'text', [
+            'default' => null,
+            'null' => false,
+        ]);
+        $table->addColumn('user_id', 'integer', [
             'default' => null,
             'limit' => 11,
-            'null' => true,
-        ]);
-        $table->addColumn('lft', 'integer', [
-            'default' => null,
-            'limit' => 10,
             'null' => false,
         ]);
-        $table->addColumn('rght', 'integer', [
+        $table->addColumn('lat', 'string', [
             'default' => null,
-            'limit' => 10,
+            'limit' => 255,
             'null' => false,
         ]);
-        $table->addColumn('name', 'string', [
+        $table->addColumn('lng', 'string', [
             'default' => null,
-            'limit' => 100,
+            'limit' => 255,
             'null' => false,
         ]);
-        $table->addColumn('description', 'string', [
+        $table->addColumn('type', 'string', [
+            'default' => null,
+            'limit' => 255,
+            'null' => false,
+        ]);
+        $table->addColumn('message_id', 'string', [
             'default' => null,
             'limit' => 255,
             'null' => false,
