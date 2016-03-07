@@ -10,7 +10,9 @@
 
 <script>
 $(function(){
+    localStorage.clear();
     var markerLat, markerLng;
+
     var map = new GMaps({
         div: '#map',
         lat: 50.44817376468559,
@@ -21,12 +23,13 @@ $(function(){
             markerLng = e.latLng.lng();
             
             openPopup();
-
+/*
             console.log( 'center lat: ' + this.getCenter().lat());
             console.log( 'center lng: ' + this.getCenter().lng());
 
             console.log( 'lat: ' + markerLat);
             console.log( 'lng: ' + markerLng);
+*/
         }
     });
 
@@ -44,10 +47,10 @@ $(function(){
             console.log("Geolocate Done!");
         }
     });
-m = map
-    map.addListener('bounds_changed', function() {
-        getMessages();
-    });
+
+setInterval(function(){
+    getMessages();
+}, 3000);
 
     function getMessages() {
         var slng, nlng, wlat, elat;
@@ -66,12 +69,10 @@ m = map
         .done(function( data ) {
             var data = $.parseJSON(data);
             $.each(data.data, function(e,n){
-//                console.log(e);
-                console.log(n);
-                addMarker(n.lat, n.lng, n.title, n.message);
+                if ( !isMessageOnMap(n.id) ) {
+                    addMarker(n.lat, n.lng, n.id, n.title, n.message);
+                }
             })
-//            addMarker(markerLat, markerLng, $('#title').val(), $('#message').val());
-//            $('.overlay, .popup').hide();
         })
         .error(function(e){
             console.log(e);
@@ -98,18 +99,16 @@ m = map
                     lng: markerLng }
         })
         .done(function( msg ) {
-            addMarker(markerLat, markerLng, $('#title').val(), $('#message').val());
+            getMessages();
             $('.overlay, .popup').hide();
         })
         .error(function(e){
             console.log(e);
         });
-
-        addMarker(markerLat, markerLng, $('#title').val(), $('#message').val());
-        $('.overlay, .popup').hide();
+       $('.overlay, .popup').hide();
     });
 
-    function addMarker(lat, lng, title, message) {
+    function addMarker(lat, lng, id, title, message) {
         map.addMarker({
             lat: lat,
             lng: lng,
@@ -121,16 +120,20 @@ m = map
                 console.log('You clicked in this marker');
             }
         });
+        saveMessageId(id);
     }
 
-/*
-    map.drawOverlay({
-        lat: 47.0141205,
-        lng: 31.997650699999987,
-        content: '<div class="overlay">We are here!</div>'
-  });
-    
-*/
+    function saveMessageId(id) {
+        localStorage["message" + id ] = id;
+        return true;
+    }
+
+    function isMessageOnMap(id) {
+        if ( localStorage.getItem("message"+id) )  {
+            return true;
+        }
+        return false;
+    }
 
 });
 </script>
