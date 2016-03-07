@@ -37,13 +37,6 @@ class MessagesTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('Messages', [
-            'foreignKey' => 'message_id',
-            'joinType' => 'INNER'
-        ]);
-        $this->hasMany('Messages', [
-            'foreignKey' => 'message_id'
-        ]);
     }
 
     /**
@@ -91,7 +84,6 @@ class MessagesTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['user_id'], 'Users'));
-        $rules->add($rules->existsIn(['message_id'], 'Messages'));
         return $rules;
     }
 }

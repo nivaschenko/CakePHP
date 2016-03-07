@@ -42,11 +42,6 @@ class CreateMessages extends AbstractMigration
             'limit' => 255,
             'null' => false,
         ]);
-        $table->addColumn('message_id', 'string', [
-            'default' => null,
-            'limit' => 255,
-            'null' => false,
-        ]);
         $table->addColumn('created', 'datetime', [
             'default' => null,
             'null' => false,
