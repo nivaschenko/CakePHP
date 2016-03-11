@@ -24,9 +24,9 @@ class MessagesFixture extends TestFixture
         'lat' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
         'lng' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
         'type' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
-        'message_id' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'modified' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
+        'massage_id' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -51,9 +51,9 @@ class MessagesFixture extends TestFixture
             'lat' => 'Lorem ipsum dolor sit amet',
             'lng' => 'Lorem ipsum dolor sit amet',
             'type' => 'Lorem ipsum dolor sit amet',
-            'message_id' => 'Lorem ipsum dolor sit amet',
-            'created' => '2016-03-06 15:14:39',
-            'modified' => '2016-03-06 15:14:39'
+            'created' => '2016-03-11 15:07:55',
+            'modified' => '2016-03-11 15:07:55',
+            'massage_id' => 'Lorem ipsum dolor sit amet'
         ],
     ];
 }

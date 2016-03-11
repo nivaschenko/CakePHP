@@ -14,10 +14,9 @@ use Cake\ORM\Entity;
  * @property string $lat
  * @property string $lng
  * @property string $type
- * @property string $message_id
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
- * @property \App\Model\Entity\Message[] $messages
+ * @property string $massage_id
  */
 class Message extends Entity
 {
