@@ -23,13 +23,6 @@ $(function(){
             markerLng = e.latLng.lng();
             
             openPopup();
-/*
-            console.log( 'center lat: ' + this.getCenter().lat());
-            console.log( 'center lng: ' + this.getCenter().lng());
-
-            console.log( 'lat: ' + markerLat);
-            console.log( 'lng: ' + markerLng);
-*/
         }
     });
 
@@ -103,7 +96,7 @@ setInterval(function(){
             $('.overlay, .popup').hide();
         })
         .error(function(e){
-            console.log(e);
+            alert('Please login at first');
         });
        $('.overlay, .popup').hide();
     });
