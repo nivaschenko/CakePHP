@@ -88,19 +88,24 @@ class MessagesController extends AppController
     public function add()
     {
         $message = $this->Messages->newEntity();
-        if ($this->request->is('ajax')) {
+        if ($this->request->is(['patch', 'post', 'put', 'ajax'])) {
+//        if ($this->request->is('ajax')) {
             $message = $this->Messages->patchEntity($message, $this->request->data);
             $message->user_id = $this->Auth->user('id');
             $message->type = $message->message_id ? 'comment' : 'message';
             if ($this->Messages->save($message)) {
-                echo json_encode('SUCCESS');
-                die();
-//                $this->Flash->success(__('The message has been saved.'));
-//                return $this->redirect(['action' => 'index']);
+                if ($this->request->is('ajax')) {
+                    echo json_encode('SUCCESS');
+                    die();
+                }
+                $this->Flash->success(__('The message has been saved.'));
+                return $this->redirect(['action' => 'index']);
             } else {
-                echo json_encode('ERROR');
-                die();
-//                $this->Flash->error(__('The message could not be saved. Please, try again.'));
+                if ($this->request->is('ajax')) {
+                    echo json_encode('ERROR');
+                    die();
+                }
+                $this->Flash->error(__('The message could not be saved. Please, try again.'));
             }
         }
         $users = $this->Messages->Users->find('list', ['limit' => 200]);

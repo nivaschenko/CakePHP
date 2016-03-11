@@ -19,6 +19,7 @@
             echo $this->Form->input('lat');
             echo $this->Form->input('lng');
             echo $this->Form->input('type');
+            echo $this->Form->input('message_id');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -11,7 +11,8 @@ use Cake\Validation\Validator;
  * Messages Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Users
- * @property \Cake\ORM\Association\BelongsTo $Massages
+ * @property \Cake\ORM\Association\BelongsTo $Messages
+ * @property \Cake\ORM\Association\HasMany $Messages
  */
 class MessagesTable extends Table
 {
@@ -36,9 +37,12 @@ class MessagesTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('Massages', [
-            'foreignKey' => 'massage_id',
+        $this->belongsTo('Messages', [
+            'foreignKey' => 'message_id',
             'joinType' => 'INNER'
+        ]);
+        $this->hasMany('Messages', [
+            'foreignKey' => 'message_id'
         ]);
     }
 
@@ -87,7 +91,7 @@ class MessagesTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['user_id'], 'Users'));
-        $rules->add($rules->existsIn(['massage_id'], 'Massages'));
+        $rules->add($rules->existsIn(['message_id'], 'Messages'));
         return $rules;
     }
 }

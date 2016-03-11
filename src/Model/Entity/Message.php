@@ -16,7 +16,8 @@ use Cake\ORM\Entity;
  * @property string $type
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
- * @property string $massage_id
+ * @property string $message_id
+ * @property \App\Model\Entity\Massage $massage
  */
 class Message extends Entity
 {

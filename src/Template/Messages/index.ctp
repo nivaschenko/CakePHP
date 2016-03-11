@@ -17,9 +17,9 @@
                 <th><?= $this->Paginator->sort('lat') ?></th>
                 <th><?= $this->Paginator->sort('lng') ?></th>
                 <th><?= $this->Paginator->sort('type') ?></th>
-                <th><?= $this->Paginator->sort('message_id') ?></th>
                 <th><?= $this->Paginator->sort('created') ?></th>
                 <th><?= $this->Paginator->sort('modified') ?></th>
+                <th><?= $this->Paginator->sort('message_id') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -32,9 +32,9 @@
                 <td><?= h($message->lat) ?></td>
                 <td><?= h($message->lng) ?></td>
                 <td><?= h($message->type) ?></td>
-                <td><?= h($message->message_id) ?></td>
                 <td><?= h($message->created) ?></td>
                 <td><?= h($message->modified) ?></td>
+                <td><?= h($message->message_id) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $message->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $message->id]) ?>

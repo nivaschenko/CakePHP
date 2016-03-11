@@ -45,6 +45,12 @@ setInterval(function(){
     getMessages();
 }, 3000);
 
+map.addListener(map, 'click', function(event){
+  if(currentInfoWindow != null){
+    currentInfoWindow.close();
+  }
+});
+
     function getMessages() {
         var slng, nlng, wlat, elat;
         wlng = map.getBounds().getSouthWest().lng();

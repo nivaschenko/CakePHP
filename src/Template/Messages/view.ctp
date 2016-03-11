@@ -67,9 +67,9 @@
                 <th><?= __('Lat') ?></th>
                 <th><?= __('Lng') ?></th>
                 <th><?= __('Type') ?></th>
-                <th><?= __('Message Id') ?></th>
                 <th><?= __('Created') ?></th>
                 <th><?= __('Modified') ?></th>
+                <th><?= __('Message Id') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($message->messages as $messages): ?>
@@ -81,9 +81,9 @@
                 <td><?= h($messages->lat) ?></td>
                 <td><?= h($messages->lng) ?></td>
                 <td><?= h($messages->type) ?></td>
-                <td><?= h($messages->message_id) ?></td>
                 <td><?= h($messages->created) ?></td>
                 <td><?= h($messages->modified) ?></td>
+                <td><?= h($messages->message_id) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Messages', 'action' => 'view', $messages->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Messages', 'action' => 'edit', $messages->id]) ?>

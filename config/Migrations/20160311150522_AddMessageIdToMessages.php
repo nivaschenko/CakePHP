@@ -13,7 +13,7 @@ class AddMessageIdToMessages extends AbstractMigration
     public function change()
     {
         $table = $this->table('messages');
-        $table->addColumn('massage_id', 'string', [
+        $table->addColumn('message_id', 'string', [
             'default' => null,
             'limit' => 255,
             'null' => false,
